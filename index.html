@@ -102,6 +102,13 @@ background:radial-gradient(circle at 30% 25%,var(--glow) 0%,var(--glow-2) 35%,va
 .post .title{font-size:16px;font-weight:800;line-height:1.5}
 .post .go{color:var(--text-3)}
 html[dir=rtl] .post .go{transform:scaleX(-1)}
+/* featured article (type "article"): hero thumb + read / free-download buttons */
+.post.feature{flex-direction:column;align-items:stretch;gap:12px;grid-column:1/-1;border-color:rgba(var(--acc-rgb),.5);box-shadow:0 0 40px rgba(var(--glow-rgb),.1) inset,0 0 34px rgba(var(--glow-rgb),.28)}
+.post.feature:hover{transform:none}
+.post.feature .hero-img{display:block;width:100%;aspect-ratio:16/9;max-height:340px;object-fit:cover;border-radius:16px;border:1px solid rgba(var(--acc-rgb),.25);background:var(--bg-1)}
+.post.feature .title{font-size:18px}
+.post.feature .acts{display:flex;flex-wrap:wrap;gap:10px}
+.post.feature .acts .btn{flex:1 1 200px;font-size:15px;padding:11px 16px}
 .more{display:block;text-align:center;margin-top:12px;color:var(--acc);font-weight:700;font-size:14.5px}
 /* contact */
 .contact{text-align:center;padding:26px 20px;background:radial-gradient(90% 120% at 50% 0%,rgba(var(--glow-rgb),.28),rgba(11,26,58,.7) 60%)}
@@ -228,9 +235,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 <!--
   LATEST CONTENT — to add a new post, put a new object at the TOP of this array.
   type: "reel" | "carousel" | "post"   url: Instagram link   fa / en: titles
+  type "article" = featured card: url_fa / url_en (per language), thumb (image URL), pdf (free download button)
 -->
 <script type="application/json" id="posts-data">
 [
+  {"type":"article","url":"https://www.radsap.com/find-open-production-bottleneck-with-data/","url_fa":"https://www.radsap.com/fa/find-open-production-bottleneck-with-data-fa/","url_en":"https://www.radsap.com/find-open-production-bottleneck-with-data/","thumb":"https://www.radsap.com/efeeksym/2026/10/bottleneck-hero.png","pdf":"https://www.radsap.com/efeeksym/2026/10/radsap-bottleneck-finder-checklist.pdf","fa":"چگونه با داده گلوگاه تولید را پیدا و باز کنیم","en":"How to Find and Open a Production Bottleneck with Data"},
   {"type":"reel","url":"https://www.instagram.com/fai.data/reel/Dd9ZZJ4BmYb/","fa":"گلوگاه رو توی ریل قبل شناختیم — ۳ قدم عملی","en":"Found the bottleneck? 3 practical steps to unblock it"},
   {"type":"reel","url":"https://www.instagram.com/p/Dd8c7oGhR3H/","fa":"این پیج رو هوش مصنوعی می‌چرخونه… ولی تنها نیست","en":"This page is run by AI… but not alone"},
   {"type":"carousel","url":"https://www.instagram.com/fai.data/p/Dd6UK97oFVf/","fa":"۵ قدم برای باز کردن گلوگاه تولید","en":"5 steps to unblock a production bottleneck"},
@@ -239,10 +248,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 </script>
 <script>
 (function(){
- var T={reel:{fa:'ریل',en:'Reel',i:'i-play'},carousel:{fa:'کاروسل',en:'Carousel',i:'i-cards'},post:{fa:'پست',en:'Post',i:'i-cards'}};
+ var T={reel:{fa:'ریل',en:'Reel',i:'i-play'},carousel:{fa:'کاروسل',en:'Carousel',i:'i-cards'},post:{fa:'پست',en:'Post',i:'i-cards'},article:{fa:'مقاله · رادساپ',en:'Article · radsap',i:'i-web'}};
  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
  var posts=[];try{posts=JSON.parse(document.getElementById('posts-data').textContent)}catch(e){}
  document.getElementById('posts').innerHTML=posts.map(function(p){var t=T[p.type]||T.post;
+  if(p.type==='article'){var uf=esc(p.url_fa||p.url),ue=esc(p.url_en||p.url);
+   return '<div class="card post feature">'+
+    (p.thumb?'<a href="'+uf+'" target="_blank" rel="noopener" lang="fa"><img class="hero-img" src="'+esc(p.thumb)+'" alt="'+esc(p.fa)+'" loading="lazy"></a><a href="'+ue+'" target="_blank" rel="noopener" lang="en"><img class="hero-img" src="'+esc(p.thumb)+'" alt="'+esc(p.en||p.fa)+'" loading="lazy"></a>':'')+
+    '<span class="meta"><span class="type"><span lang="fa">'+t.fa+'</span><span lang="en">'+t.en+'</span></span>'+
+    '<span class="title" style="display:block"><a lang="fa" href="'+uf+'" target="_blank" rel="noopener">'+esc(p.fa)+'</a><a lang="en" href="'+ue+'" target="_blank" rel="noopener">'+esc(p.en||p.fa)+'</a></span></span>'+
+    '<span class="acts"><a class="btn line" lang="fa" href="'+uf+'" target="_blank" rel="noopener"><svg class="ic"><use href="#i-web"/></svg>خواندن مقالهٔ کامل</a><a class="btn line" lang="en" href="'+ue+'" target="_blank" rel="noopener"><svg class="ic"><use href="#i-web"/></svg>Read the full article</a>'+
+    (p.pdf?'<a class="btn primary" href="'+esc(p.pdf)+'" target="_blank" rel="noopener" download><svg class="ic"><use href="#i-plan"/></svg><span lang="fa">دانلود رایگان چک‌لیست</span><span lang="en">Free checklist download</span></a>':'')+
+    '</span></div>';}
   return '<a class="card post" href="'+esc(p.url)+'" target="_blank" rel="noopener">'+
    '<span class="thumb"><svg class="ic"'+(p.type==='reel'?' style="fill:currentColor"':'')+'><use href="#'+t.i+'"/></svg></span>'+
    '<span class="meta"><span class="type"><span lang="fa">'+t.fa+'</span><span lang="en">'+t.en+'</span></span>'+
