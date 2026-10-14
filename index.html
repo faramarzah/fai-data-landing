@@ -118,6 +118,7 @@ html[dir=rtl] .post .go{transform:scaleX(-1)}
 .btn.primary{background:var(--acc);color:var(--ink);box-shadow:0 0 30px rgba(var(--glow-rgb),.55)}
 .btn.line{border:1px solid rgba(var(--acc-rgb),.4);color:var(--text);background:rgba(5,10,26,.4)}
 .btn.line:hover{border-color:var(--acc)}
+#downloads .svc p{color:var(--text-2);font-size:15px;margin:8px 0 14px}#downloads .svc .btn{margin-top:auto}#downloads .svc{display:flex;flex-direction:column}#story,#downloads,#review{margin-top:26px}#review p{margin:8px 0 14px}
 .ltr{direction:ltr;unicode-bidi:isolate}
 footer{text-align:center;color:var(--text-3);font-size:13px;padding:26px 0 40px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
@@ -173,6 +174,50 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </div>
  </section>
 
+ <section id="story" aria-labelledby="h-story">
+  <div class="card">
+   <h2 id="h-story"><span lang="fa">چرا این صفحه؟</span><span lang="en">Why this page?</span></h2>
+   <p lang="fa">در ۲۴ سال کار در تولید، بارها دیده‌ام که مشکل اصلی کمبود داده نیست؛ داده هست، ولی کسی از آن تصمیم نمی‌گیرد. گلوگاه پشت عددهای قشنگ پنهان می‌ماند و داشبوردها باز نمی‌شوند. این چک‌لیست‌ها همان سؤال‌هایی است که خودم روز اول در هر کارخانه می‌پرسم. رایگان‌اند و برای دانلودشان لازم نیست ایمیل بدهید.</p>
+   <p lang="en">In my 24 years in manufacturing, I have seen the same thing again and again: the problem is rarely a lack of data. The data is there, but nobody makes decisions with it. Bottlenecks hide behind good-looking numbers, and dashboards go unopened. These checklists are the questions I ask on day one in any factory. They are free, and you don’t need to give an email to download them.</p>
+  </div>
+ </section>
+
+ <section id="downloads" aria-labelledby="h-dl">
+  <div class="sec-h"><h2 id="h-dl"><span lang="fa">دانلود رایگان</span><span lang="en">Free Downloads</span></h2><span class="line"></span></div>
+  <div class="grid">
+   <article class="card svc">
+    <h3><span class="badge"><svg class="ic"><use href="#i-factory"/></svg></span><span lang="fa">چک‌لیست پیدا کردن گلوگاه</span><span lang="en">Bottleneck Finder Checklist</span></h3>
+    <p lang="fa">چند سؤال ساده برای اینکه بفهمید خروجی کارخانه واقعاً کجا گیر کرده است.</p>
+    <p lang="en">A few simple questions to find where your factory’s output is really stuck.</p>
+    <a class="btn primary" href="downloads/bottleneck-checklist.pdf" download><span lang="fa">دانلود PDF</span><span lang="en">Download PDF</span></a>
+   </article>
+   <article class="card svc">
+    <h3><span class="badge"><svg class="ic"><use href="#i-arch"/></svg></span><span lang="fa">کارنامهٔ بلوغ دیجیتال</span><span lang="en">Digital Maturity Scorecard</span></h3>
+    <p lang="fa">ببینید سازمان شما در داده، سیستم‌ها و فرایندها کجای مسیر تحول دیجیتال ایستاده است.</p>
+    <p lang="en">See where your company stands on data, systems and processes before planning a digital roadmap.</p>
+    <a class="btn primary" href="downloads/digital-maturity-scorecard.pdf" download><span lang="fa">دانلود PDF</span><span lang="en">Download PDF</span></a>
+   </article>
+   <article class="card svc">
+    <h3><span class="badge"><svg class="ic"><use href="#i-ai"/></svg></span><span lang="fa">چک‌لیست آمادگی برای هوش مصنوعی</span><span lang="en">AI Readiness Checklist</span></h3>
+    <p lang="fa">قبل از خرج کردن برای پروژهٔ هوش مصنوعی، بسنجید داده و تیم شما آماده است یا نه.</p>
+    <p lang="en">Before spending on an AI project, check whether your data and team are ready for it.</p>
+    <a class="btn primary" href="downloads/ai-readiness-checklist.pdf" download><span lang="fa">دانلود PDF</span><span lang="en">Download PDF</span></a>
+   </article>
+  </div>
+ </section>
+
+ <section id="review" aria-labelledby="h-review">
+  <div class="card contact">
+   <h2 id="h-review"><span lang="fa">بررسی رایگان ۳۰ دقیقه‌ای دادهٔ کارخانه</span><span lang="en">Free 30-Minute Factory Data Review</span></h2>
+   <p lang="fa">هر ماه فقط ۴ وقت دارم. ۳۰ دقیقه با هم به داده‌های شما نگاه می‌کنیم و من صادقانه می‌گویم اولین قدم درست کجاست. بدون فروش و بدون تعهد.</p>
+   <p lang="en">I only have 4 slots a month. We spend 30 minutes looking at your data together, and I tell you honestly where the right first step is. No sales pitch, no commitment.</p>
+   <div class="links">
+    <a class="btn primary" lang="fa" href="https://www.radsap.com/fa/contact-fa/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-web"/></svg>رزرو وقت بررسی رایگان</a>
+    <a class="btn primary" lang="en" href="https://www.radsap.com/contact-me/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-web"/></svg>Book a free review</a>
+   </div>
+  </div>
+ </section>
+
  <section id="services" aria-labelledby="h-svc">
   <div class="sec-h"><h2 id="h-svc"><span lang="fa">خدمات</span><span lang="en">Services</span></h2><span class="line"></span></div>
   <div class="grid">
@@ -222,6 +267,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
    <p><span lang="fa">مسئلهٔ کارخونه‌ت رو در دایرکت اینستاگرام بنویس تا بررسی کنیم از کجا شروع کنیم.</span><span lang="en">Describe your factory’s challenge in an Instagram DM and we’ll figure out where to start.</span></p>
    <div class="links">
     <a class="btn primary" href="https://ig.me/m/fai.data" target="_blank" rel="noopener"><svg class="ic"><use href="#i-dm"/></svg><span lang="fa">پیام در دایرکت اینستاگرام</span><span lang="en">Message on Instagram</span></a>
+    <a class="btn line" href="https://www.youtube.com/channel/UCb49ucRfOzfJ_lE8K1W_t9A" target="_blank" rel="noopener"><svg class="ic"><use href="#i-web"/></svg><span lang="fa">کانال یوتیوب</span><span lang="en">YouTube channel</span></a>
+    <a class="btn line" href="https://www.instagram.com/fai.data/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-dm"/></svg><span class="ltr">@fai.data</span></a>
     <a class="btn line" href="https://radsap.com" target="_blank" rel="noopener"><svg class="ic"><use href="#i-web"/></svg><span class="ltr">radsap.com</span></a>
    </div>
   </div>
